@@ -14,7 +14,9 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "http://localhost:3000",           # Next.js dev server
-        "https://your-app.vercel.app"      # Replace with your Vercel URL later
+        "https://resume-analyzer-fawn-delta.vercel.app/",
+        "https://resume-analyzer-git-main-subarna-kars-projects.vercel.app/",
+        "https://resume-analyzer-kla1q2lxv-subarna-kars-projects.vercel.app/"
     ],
     allow_credentials=True,
     allow_methods=["*"],
