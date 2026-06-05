@@ -1,12 +1,19 @@
 from pydantic import BaseModel
 
-# This defines what data shapes our API sends/receives
 class AnalysisResponse(BaseModel):
-    name: str               # Extracted candidate name
-    skills: list[str]       # List of skills found
-    experience_years: str   # Estimated experience
-    education: str          # Education summary
-    strengths: list[str]    # AI-identified strengths
-    suggestions: list[str]  # AI improvement tips
-    score: int              # Resume score out of 100
-    summary: str            # AI-written summary
+    name: str
+    skills: list[str]
+    experience_years: str
+    education: str
+    strengths: list[str]
+    suggestions: list[str]
+    score: int
+    summary: str
+
+# NEW — for JD matching
+class JDMatchResponse(BaseModel):
+    match_score: int           # 0-100 % match
+    matched_keywords: list[str]   # skills found in both resume + JD
+    missing_keywords: list[str]   # skills in JD but not in resume
+    recommendations: list[str]   # what to add/change to pass ATS
+    verdict: str               # "Strong Match" / "Moderate Match" / "Weak Match"

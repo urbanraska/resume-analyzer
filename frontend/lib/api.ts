@@ -30,3 +30,29 @@ export async function analyzeResume(file: File): Promise<AnalysisResult> {
 
   return response.json();
 }
+
+export interface JDMatchResult {
+  match_score: number;
+  matched_keywords: string[];
+  missing_keywords: string[];
+  recommendations: string[];
+  verdict: string;
+}
+
+export async function matchJD(file: File, jdText: string): Promise<JDMatchResult> {
+  const formData = new FormData();
+  formData.append("file", file);
+  formData.append("jd_text", jdText);  // matches FastAPI's Form(...) parameter name
+
+  const response = await fetch(`${API_BASE}/api/match-jd`, {
+    method: "POST",
+    body: formData,
+  });
+
+  if (!response.ok) {
+    const error = await response.json();
+    throw new Error(error.detail || "JD matching failed");
+  }
+
+  return response.json();
+}
