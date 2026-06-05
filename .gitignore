@@ -1,0 +1,46 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+*.pyd
+*.env
+*.env.*
+venv/
+env/
+.venv/
+pip-log.txt
+pip-delete-this-directory.txt
+htmlcov/
+.pytest_cache/
+coverage.xml
+coverage-html/
+dist/
+build/
+*.egg-info/
+
+# FastAPI / Uvicorn
+*.log
+
+# Node
+frontend/node_modules/
+frontend/.next/
+frontend/.turbo/
+frontend/out/
+frontend/build/
+
+# IDEs and editors
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+*.DS_Store
+Thumbs.db
+
+# OS
+Desktop.ini
+ehthumbs.db
+Icon?
